@@ -1,8 +1,18 @@
 pipeline {
     agent any
+    
+    environment { 
+        CI = 'true'
+    }
 
     stages {
-        stage('Preparar') {
+        stage('Build') {
+            steps {
+                echo 'Clonando o repositório...'
+            }
+        }
+
+        stage('Teste') {
             steps {
                 echo 'Clonando o repositório...'
             }
@@ -11,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Publicando index.html no servidor...'
-                // Aqui você colocaria o comando real, como copiar para uma pasta ou servidor
+                
             }
         }
     }
